@@ -1,4 +1,4 @@
-from flask import Flask, request, url_for, render_template, redirect
+from flask import Flask, request, render_template
 from sqlite3 import connect
 
 app = Flask(__name__)
@@ -23,34 +23,32 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/submit", methods=["GET", "POST"])
+@app.route("/search")
 def search():
+    return render_template("search.html")
+
+
+@app.route("/submit", methods=["GET", "POST"])
+def submit():
     if request.method == "POST":
-        print("submitted")
-    return render_template("submit.html")
-
-
-@app.post('/handle_add')
-def handle_add():
-    if request.method == "POST":
-        name = request.form.get("restaurantName")
-        location = request.form.get("location")
-        cuisine = request.form.get("cuisine")
-        dietary = request.form.get("dietary")
-        description = request.form.get("description")
-
-        print(name, location, cuisine, dietary, description)
+        name = request.form['restaurantName']
+        location = request.form['location']
+        cuisine = request.form['cuisine']
+        dietary = request.form['dietary']
+        description = request.form['description']
 
         connection = connect('database.db')
 
         cursor = connection.cursor()
         cursor.execute(
             "INSERT INTO dining_options (name, location, cuisine, dietary, description) VALUES (?, ?, ?, ?, ?)",
-            (name, location, cuisine, dietary, description))
+            (name, location, cuisine, dietary, description)
+        )
         connection.commit()
 
         connection.close()
-    return render_template("search.html")
+    return render_template("submit.html")
+
 
 @app.route("/favorites")
 def favorites():
