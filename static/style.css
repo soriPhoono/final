@@ -39,6 +39,62 @@ body {
     font-size: 2.5rem;
 }
 
+.search-section {
+    background-color: white;
+    border-radius: 16px;
+    padding: 25px;
+    margin-top: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-control,
+.form-select {
+    border-radius: 12px;
+    font-size: 0.95rem;
+    padding: 8px 14px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #155724;
+}
+
+.btn-success {
+    border-radius: 30px;
+    padding: 8px 24px;
+    font-weight: 600;
+}
+
+.restaurant-card {
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.map-container {
+    border-radius: 14px;
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+}
+
+a.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 footer {
     background-color: #198754;
     color: white;
