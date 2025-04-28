@@ -23,9 +23,11 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/search")
+@app.route("/submit", methods=["GET", "POST"])
 def search():
-    return render_template("search.html")
+    if request.method == "POST":
+        print("submitted")
+    return render_template("submit.html")
 
 
 @app.post('/handle_add')
