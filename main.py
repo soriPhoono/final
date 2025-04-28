@@ -24,3 +24,7 @@ def search():
 @app.post('/handle_add')
 def handle_add():
     return render_template("search.html")
+
+@app.route("/favorites")
+def favorites():
+    return render_template("favorites.html")
