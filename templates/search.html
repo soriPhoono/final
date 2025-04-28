@@ -58,17 +58,17 @@
         <h2 class="text-center">Submit a New Dining Option</h2>
         <form id="submitForm" method="POST" action="{{ url_for('handle_add') }}">
             <div class="mb-3">
-                <label for="restaurantName" class="form-label">Restaurant Name</label>
-                <input type="text" class="form-control" id="restaurantName" placeholder="Enter restaurant name"
-                    required>
+                <label class="form-label">Restaurant Name</label>
+                <input for="restaurantName" type="text" class="form-control" id="restaurantName" placeholder="Enter restaurant name"
+                    required pattern="[A-Za-z0-9\s]+" title="Only letters, numbers, and spaces are allowed">
             </div>
             <div class="mb-3">
                 <label for="location" class="form-label">Location</label>
-                <input type="text" class="form-control" id="location" placeholder="Enter location" required>
+                <input type="text" class="form-control" id="location" placeholder="Enter location" required pattern="[A-Za-z0-9\s]+" title="Only letters, numbers, and spaces are allowed">
             </div>
             <div class="mb-3">
                 <label for="cuisine" class="form-label">Cuisine Type</label>
-                <input type="text" class="form-control" id="cuisine" placeholder="Enter cuisine type" required>
+                <input type="text" class="form-control" id="cuisine" placeholder="Enter cuisine type" required pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed">
             </div>
             <div class="mb-3">
                 <label for="dietary" class="form-label">Dietary Preferences</label>
@@ -84,7 +84,7 @@
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control" id="description" rows="3" placeholder="Enter a brief description"
-                    required></textarea>
+                    required pattern="[A-Za-z0-9\s]+" title="Only letters, numbers, and spaces are allowed"></textarea>
             </div>
             <button type="submit" class="btn btn-success w-100">Submit</button>
         </form>
