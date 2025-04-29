@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Details | UNT Food Finder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">UNT Food Finder</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/"><button class="btn btn-light">Home</button></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about"><button class="btn btn-light">About</button></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/search"><button class="btn btn-light">Search</button></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/submit"><button class="btn btn-light">Submit</button></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Restaurant Content -->
+    <div class="container mt-5">
+      <div class="row">
+        <!-- Restaurant Image -->
+        <div class="col-md-6">
+          <img src="assets/restaurant1.jpg" alt="Restaurant Image" class="restaurant-img shadow" />
+        </div>
+
+        <!-- Restaurant Info -->
+        <div class="col-md-6">
+          <h2 class="mb-3">Mama's Mediterranean Grill</h2>
+          <p>
+            <strong>Cuisine:</strong> Mediterranean, Halal, Vegan-friendly
+          </p>
+          <p>
+            <strong>Address:</strong> 123 Eagle Drive, Denton, TX
+          </p>
+          <p>
+            <strong>Hours:</strong> 11:00 AM – 9:00 PM (Mon–Sat)
+          </p>
+          <p>
+            <strong>Discount:</strong> 15% off with UNT Student ID
+          </p>
+          <p class="mt-3">Mama’s is a cozy spot near campus serving fresh falafel, hummus, wraps, and hearty rice bowls. Known for their student-friendly prices and generous portions!</p>
+
+          <div class="mt-4">
+            <a href="favorites.html" class="btn btn-custom me-2">❤️ Add to Favorites</a>
+            <a href="https://maps.google.com/?q=123+Eagle+Drive+Denton+TX" target="_blank" class="btn btn-outline-success">📍 Get Directions</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Highlights -->
+      <div class="mt-5">
+        <h4>Popular Dishes</h4>
+        <ul>
+          <li>Falafel Bowl</li>
+          <li>Chicken Shawarma Wrap</li>
+          <li>Veggie Platter</li>
+          <li>Baklava</li>
+        </ul>
+      </div>
+
+      <!-- Google Map -->
+      <div class="mt-4">
+        <h5>Map Location</h5>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.489055702351!2d-97.1492130848027!3d33.21024158083673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864dbebd51f99f0d%3A0xcadceac9b81b72!2sUniversity%20of%20North%20Texas!5e0!3m2!1sen!2sus!4v1713531610000!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>© 2025 UNT Food Finder | Created with ❤️ for UNT Students</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

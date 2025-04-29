@@ -95,6 +95,28 @@ a.card-link {
     color: inherit;
 }
 
+.navbar,
+footer {
+    background-color: #1b8f44;
+    color: white;
+}
+
+.restaurant-img {
+    width: 100%;
+    border-radius: 10px;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.btn-custom {
+    background-color: #1b8f44;
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #156f36;
+}
+
 footer {
     background-color: #198754;
     color: white;

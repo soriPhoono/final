@@ -1,11 +1,14 @@
-from flask import Flask, request, render_template
 from sqlite3 import connect
+from flask import Flask, request, render_template, redirect
+
+DATABASE_PATH = "./database/"
+PRIMARY_DATABASE = f"{DATABASE_PATH}database.db"
 
 app = Flask(__name__)
 
-connection = connect('database.db')
+connection = connect(PRIMARY_DATABASE)
 
-with open('database/create.sql', 'r') as f:
+with open(f'{DATABASE_PATH}create.sql', 'r') as f:
     connection.executescript(f.read())
 
 connection.commit()
@@ -37,7 +40,7 @@ def submit():
         dietary = request.form['dietary']
         description = request.form['description']
 
-        connection = connect('database.db')
+        connection = connect(PRIMARY_DATABASE)
 
         cursor = connection.cursor()
         cursor.execute(
@@ -47,7 +50,15 @@ def submit():
         connection.commit()
 
         connection.close()
-    return render_template("submit.html")
+
+        return redirect("/submit/confirm")
+    elif request.method == "GET":
+        return render_template("submit.html")
+
+
+@app.route("/submit/confirm")
+def submit_confirm():
+    return render_template("submit-confirm.html")
 
 
 @app.route("/favorites")
