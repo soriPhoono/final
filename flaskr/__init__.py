@@ -26,9 +26,26 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/search")
+@app.route("/search", methods=["GET", "POST"])
 def search():
-    return render_template("search.html")
+    results = []
+    if request.method == "POST":
+        keyword = request.form.get("keyword", "").strip()
+        
+        connection = connect(PRIMARY_DATABASE)
+        cursor = connection.cursor()
+        query = """
+            SELECT name, location, cuisine, dietary, description 
+            FROM dining_options 
+            WHERE name LIKE ? OR location LIKE ? OR cuisine LIKE ? OR dietary LIKE ?
+        """
+        keyword_wildcard = f"%{keyword}%"
+        cursor.execute(query, (keyword_wildcard, keyword_wildcard, keyword_wildcard, keyword_wildcard))
+        results = cursor.fetchall()
+        connection.close()
+
+    return render_template("search.html", results=results)
+
 
 
 @app.route("/submit", methods=["GET", "POST"])
